@@ -1,5 +1,5 @@
 const express = require("express");
-const app = express();
+const router = express.Router();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
@@ -27,10 +27,10 @@ const bookSchema = new mongoose.Schema({
 const Book = mongoose.model("Book", bookSchema);
 
 // Parse JSON bodies
-app.use(bodyParser.json());
+router.use(bodyParser.json());
 
 // POST route to save a book
-app.post("/book/:name", (req, res) => {
+router.post("/book/:name", (req, res) => {
   const { name, author, pages } = req.body;
 
   // Create a new book instance
@@ -51,7 +51,4 @@ app.post("/book/:name", (req, res) => {
     });
 });
 
-// Start the server
-app.listen(3000, () => {
-  console.log("Server started on port 3000");
-});
+module.exports = router;
