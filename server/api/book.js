@@ -30,7 +30,7 @@ const Book = mongoose.model("Book", bookSchema);
 app.use(bodyParser.json());
 
 // POST route to save a book
-app.post("/api/book", (req, res) => {
+app.post("/book/:name", (req, res) => {
   const { name, author, pages } = req.body;
 
   // Create a new book instance

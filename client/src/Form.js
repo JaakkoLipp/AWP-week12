@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Update the import statement
 const BookForm = () => {
   const [name, setName] = useState("");
   const [author, setAuthor] = useState("");
   const [pages, setPages] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate(); // Replace useHistory with useNavigate
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const BookForm = () => {
       .then((data) => {
         console.log("Book successfully submitted:", data);
         // Redirect to the book page
-        history.push(`/book/${encodeURIComponent(name)}`);
+        navigate(`/book/${encodeURIComponent(name)}`); // Replace history.push with navigate
       })
       .catch((error) => {
         console.error("Error submitting book:", error);
