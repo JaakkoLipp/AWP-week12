@@ -60,7 +60,7 @@ const BookForm = () => {
         onChange={(e) => setPages(e.target.value)}
       />
 
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Submit" id="submit" />
     </form>
   );
 };
